@@ -6,11 +6,19 @@ var GeyserRoutes = (function () {
     GeyserRoutes.init = function (router) {
         router
             .route('/api/temperatures')
-            .get(geyser_controller_1.GeyserController.getAll);
+            .get(geyser_controller_1.GeyserController.getAllTemperatures);
         // .post(GeyserController.createTodo);
         router
             .route('/api/temperatures/:id')
-            .get(geyser_controller_1.GeyserController.getOne);
+            .get(geyser_controller_1.GeyserController.getOneTemperature);
+        router
+            .route('/api/relays')
+            .get(geyser_controller_1.GeyserController.getAllRelays);
+        // .post(GeyserController.createTodo);
+        router
+            .route('/api/relays/:id')
+            .get(geyser_controller_1.GeyserController.getOneRelay)
+            .put(geyser_controller_1.GeyserController.updateRelay);
     };
     return GeyserRoutes;
 }());

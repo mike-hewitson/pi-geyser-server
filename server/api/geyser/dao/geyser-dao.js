@@ -3,21 +3,18 @@ var mongoose = require('mongoose');
 var Promise = require('bluebird');
 var _ = require('lodash');
 var geyser_model_1 = require('../model/geyser-model');
-// geyserSchema.static('getAll', ():Promise<any> => {
-geyser_model_1.default.static('getAll', function () {
+geyser_model_1.default.static('getAllTemperatures', function () {
     return new Promise(function (resolve, reject) {
-        //   return [{ 'Geyser one': 59.1 }, { 'Geyser two': 48.2 }];
-        // }
         var _query = {};
         Temperature
             .find(_query)
             .exec(function (err, temperatures) {
             err ? reject(err)
-                : resolve([{ 'Geyser one': 59.1 }, { 'Geyser two': 48.2 }]);
+                : resolve([{ name: 'Geyser one', temperature: 59.1 }, { name: 'Geyser two', temperature: 48.2 }]);
         });
     });
 });
-geyser_model_1.default.static('getOne', function (id) {
+geyser_model_1.default.static('getOneTemperature', function (id) {
     return new Promise(function (resolve, reject) {
         if (!_.isString(id)) {
             return reject(new TypeError('Id is not a valid string.'));
@@ -26,7 +23,31 @@ geyser_model_1.default.static('getOne', function (id) {
             .find(id)
             .exec(function (err, temperatures) {
             err ? reject(err)
-                : resolve({ 'Geyser one': 59.1 });
+                : resolve({ name: 'Geyser one', temperature: 59.1 });
+        });
+    });
+});
+geyser_model_1.default.static('getAllRelays', function () {
+    return new Promise(function (resolve, reject) {
+        var _query = {};
+        Temperature
+            .find(_query)
+            .exec(function (err, relays) {
+            err ? reject(err)
+                : resolve([{ name: 'Geyser one', state: true }, { name: 'Geyser two', state: false }]);
+        });
+    });
+});
+geyser_model_1.default.static('getOneRelay', function (id) {
+    return new Promise(function (resolve, reject) {
+        if (!_.isString(id)) {
+            return reject(new TypeError('Id is not a valid string.'));
+        }
+        Temperature
+            .find(id)
+            .exec(function (err, relays) {
+            err ? reject(err)
+                : resolve({ name: 'Geyser one', state: true });
         });
     });
 });
@@ -42,19 +63,19 @@ geyser_model_1.default.static('getOne', function (id) {
 //       });
 //     });
 // });
-// geyserSchema.static('deleteTodo', (id:string):Promise<any> => {
-//     return new Promise((resolve:Function, reject:Function) => {
-//         if (!_.isString(id)) {
-//             return reject(new TypeError('Id is not a valid string.'));
-//         }
-//         Todo
-//           .findByIdAndRemove(id)
-//           .exec((err, deleted) => {
-//               err ? reject(err)
-//                   : resolve();
-//           });
-//     });
-// });
+geyser_model_1.default.static('updateRelay', function (id) {
+    return new Promise(function (resolve, reject) {
+        if (!_.isString(id)) {
+            return reject(new TypeError('Id is not a valid string.'));
+        }
+        Temperature
+            .findByIdAndUpdate(id, { $set: { state: false } })
+            .exec(function (err, updated) {
+            err ? reject(err)
+                : resolve(updated);
+        });
+    });
+});
 var Temperature = mongoose.model('Temperature', geyser_model_1.default);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Temperature;

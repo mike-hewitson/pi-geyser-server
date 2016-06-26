@@ -7,11 +7,21 @@ export class GeyserRoutes {
     static init(router: express.Router) {
       router
         .route('/api/temperatures')
-        .get(GeyserController.getAll);
+        .get(GeyserController.getAllTemperatures);
         // .post(GeyserController.createTodo);
 
       router
         .route('/api/temperatures/:id')
-        .get(GeyserController.getOne);
+        .get(GeyserController.getOneTemperature);
+
+      router
+        .route('/api/relays')
+        .get(GeyserController.getAllRelays);
+        // .post(GeyserController.createTodo);
+
+      router
+        .route('/api/relays/:id')
+        .get(GeyserController.getOneRelay)
+        .put(GeyserController.updateRelay);
     }
 }

@@ -11,3 +11,5 @@ Get the relay stuff loaded as paths
 Get the temperature stuff loaded as paths
 Add to go.cd
 Add to sonar
+Create tests for temperatures and relays
+Fix up the relay update
