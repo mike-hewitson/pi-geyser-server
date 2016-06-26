@@ -6,6 +6,11 @@ var GeyserRoutes = (function () {
     GeyserRoutes.init = function (router) {
         router
             .route('/api/temperatures')
+            .all(function (req, res, next) {
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "X-Requested-With");
+            next();
+        })
             .get(geyser_controller_1.GeyserController.getAllTemperatures);
         // .post(GeyserController.createTodo);
         router
@@ -13,6 +18,11 @@ var GeyserRoutes = (function () {
             .get(geyser_controller_1.GeyserController.getOneTemperature);
         router
             .route('/api/relays')
+            .all(function (req, res, next) {
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "X-Requested-With");
+            next();
+        })
             .get(geyser_controller_1.GeyserController.getAllRelays);
         // .post(GeyserController.createTodo);
         router
