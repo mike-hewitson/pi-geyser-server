@@ -1,0 +1,10 @@
+.idea
+coverage
+node_modules
+unit_coverage
+typings
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+

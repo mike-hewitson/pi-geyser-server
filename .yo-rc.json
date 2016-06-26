@@ -1,0 +1,11 @@
+{
+  "generator-ng-fullstack": {
+    "username": "mike-hewitson",
+    "appName": "pi-geyser-server",
+    "stack": "server",
+    "server": "node",
+    "client": "",
+    "transpilerServer": "typescript",
+    "secure": false
+  }
+}
