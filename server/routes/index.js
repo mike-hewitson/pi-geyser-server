@@ -1,10 +1,10 @@
 "use strict";
-var todo_routes_1 = require('../api/todo/routes/todo-routes');
+var geyser_routes_1 = require('../api/geyser/routes/geyser-routes');
 var Routes = (function () {
     function Routes() {
     }
     Routes.init = function (app, router) {
-        todo_routes_1.TodoRoutes.init(router);
+        geyser_routes_1.GeyserRoutes.init(router);
         app.use('/', router);
     };
     return Routes;
