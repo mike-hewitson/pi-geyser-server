@@ -14,5 +14,6 @@ script:
   # - gulp coverage_frontend
   # - npm run-script test-on-travis
   - npm run test-server
+  - npm run coveralls-server
 
 services: mongodb

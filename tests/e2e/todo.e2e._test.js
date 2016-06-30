@@ -1,6 +1,6 @@
 "use strict";
 
-describe('todo.e2e', function() {
+xdescribe('todo.e2e', function() {
     var SUBMIT_TODO_BUTTON = '#submit-todo-button';
     var TODO_MODEL = 'todosCtrl.todo.todoMessage';
     var CLOSE_TODO = '.todo-done';
