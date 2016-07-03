@@ -11,17 +11,35 @@ npm run coverage-server
 ```
 In seperate windows
 
+# Runinng on PI
+## Installing
+For example to install RPi nodejs version 4.3.1 (see below for other versions)
+
+wget https://nodejs.org/dist/v4.3.1/node-v4.3.1-linux-armv6l.tar.xz
+tar xf node-v4.3.1-linux-armv6l.tar.xz  
+cd node-v4.3.1-linux-armv6l/ 
+sudo cp -R * /usr/local
+```
+$ sudo npm install forever -g
+
+$ git clone repo
+$ cd pi-geyser-server
+$ npm install
+```
+
+
 # TODO
+## Sooner
 Add papertrail logging
+Fix up the relay update
+Create tests for relays updating
+Get relays redaing from the PI
+
+## Later
 Add oAuth
 Clean out the rubbish for front-end
-Get the relay stuff loaded as paths
-Get the temperature stuff loaded as paths
 Add to go.cd
 Add to sonar
-Create tests for relays updating
-Fix up the relay update
-Get relays redaing from the PI
 Deal with mongoose promise message
 Work out how to do coverage with TS
 Create paths for the configurations
